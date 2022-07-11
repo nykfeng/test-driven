@@ -1,0 +1,16 @@
+{
+  "name": "test-driven",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest --watchAll --verbose"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^28.1.4",
+    "jest": "^28.1.2"
+  }
+}
