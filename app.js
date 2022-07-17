@@ -1,11 +1,18 @@
 const express = require("express");
-
+const todoRoutes = require("./routes/todo.routes");
+const { default: mongoose } = require("mongoose");
+const mongodb = require("./mongodb/mongodb.connect");
 const app = express();
 
-app.get("/", (req, res)=> {
-    res.json('Hi mom');
-})
+mongodb.connect();
+app.use(express.json());
 
-app.listen(3000, ()=> {
-    console.log('running on port 3000');
-})
+app.use("/todos", todoRoutes);
+
+app.get("/", (req, res) => {
+  res.json("Hi mom");
+});
+
+
+
+module.exports = app;

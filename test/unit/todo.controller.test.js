@@ -36,16 +36,16 @@ describe("ToDoController.createTodo", () => {
     expect(TodoModel.create).toBeCalledWith(newTodo);
   });
 
-  it("shoudl return 201 response code", ()=> {
+  it("shoudl return 201 response code", async ()=> {
     req.body = newTodo;
-    TodoController.createTodo(req, res, next);
+    await TodoController.createTodo(req, res, next);
     expect(res.statusCode).toBe(201);
     expect(res._isEndCalled()).toBeTruthy();// expect the response to be sent
   })
 
-  it ("should return json body in response", ()=> {
+  it ("should return json body in response", async ()=> {
     TodoModel.create.mockReturnValue(newTodo);
-    TodoController.createTodo(req, res, next);
+    await TodoController.createTodo(req, res, next);
     expect(res._getJSONData()).toStrictEqual(newTodo);
 
   })
