@@ -9,10 +9,14 @@ app.use(express.json());
 
 app.use("/todos", todoRoutes);
 
+// Express error handling
+app.use((error, req, res, next) => {
+//   console.log(error);
+  res.status(500).json({ message: error.message });
+});
+
 app.get("/", (req, res) => {
   res.json("Hi mom");
 });
-
-
 
 module.exports = app;
